@@ -102,6 +102,14 @@ public final class Security {
         activePlayerTL.set( player );
     }
 
+    public static void deactivatePlayer() {
+        activePlayerTL.set( null );
+    }
+
+    public static boolean isPlayerActive(final IPlayer player) {
+        return activePlayerTL.get() == player;
+    }
+
     public static void activatePlayerRun(final Player currentPlayer, final Runnable job) {
         checkArgument( currentPlayer.isCurrentPlayer(), "Cannot authenticate, player is not the current player: ", currentPlayer );
 
